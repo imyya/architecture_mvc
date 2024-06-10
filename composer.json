@@ -1,0 +1,17 @@
+{
+    "name": "mya/tp_arch",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+            
+
+        }
+    },
+    "authors": [
+        {
+            "name": "STG-75377",
+            "email": "MamyaSamane.AIDARA@orange-sonatel.com"
+        }
+    ],
+    "require": {}
+}
