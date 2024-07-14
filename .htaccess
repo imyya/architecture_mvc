@@ -3,3 +3,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteRule ^(.*)$ public/index.php?$1 [L,QSA]
+
+#Exclude CSS and other static files from rewrite
+RewriteRule ^(.css|images|robots\.txt|favicon\.ico)$ - [L]

@@ -12,7 +12,6 @@ class Router{
         // remove the leading slash if there is one
     
         $path = str_replace("/public", "", $path);
-        echo'here is $path  '.$path;
 
     
         // if (substr($path, 0, 1) === '/') {//checks if the #st crctr startin frm 0 is / 
@@ -21,7 +20,6 @@ class Router{
         // Split the path into controller and action
     
         $parts = explode('/', $path);
-        echo'   here is $parts[0]'. $parts[1];
 
         $controllerName = $parts[1] ?? null;
         $action = $parts[2] ?? null;
@@ -29,17 +27,21 @@ class Router{
         // $params = array_slice($parts, 2); // Get any remaining parts of the URL
         unset($parts[1],$parts[2]);//to get rid of the contrller n action and leav only the params
         $params=!empty($parts) ? array_values($parts):[];
+        // echo $params[1];
+        // foreach($params as $p){
+        //     echo $p;
+        // }
         if ($controllerName !== null) {
+
             $controllerName = ucfirst($controllerName) . "Controller";
+            
             $file=__DIR__ . '/../controller/'.$controllerName.".php";
             
             $ctrlObject="App\controller\\".$controllerName;
-            
-    
+                
             if (file_exists($file)){
                 require_once($file);
                 $controller = new $ctrlObject;
-                echo'  is action '.$action;
     
                 $action=$action ?? 'index';
     
